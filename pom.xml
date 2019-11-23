@@ -26,33 +26,51 @@
     </properties>
 
     <profiles>
-        <profile>
-            <id>allCalcTests</id>
-            <activation>
-                <activeByDefault>false</activeByDefault>
-            </activation>
-            <properties>
-                <suite.file>src/test/resources/MainCalcTestSuite.xml</suite.file>
-            </properties>
-        </profile>
+        <!--    <profile>
+                <id>allCalcTests</id>
+                <activation>
+                    <activeByDefault>false</activeByDefault>
+                </activation>
+                <properties>
+                    <suite.file>src/test/resources/MainCalcTestSuite.xml</suite.file>
+                </properties>
+            </profile>
 
+            <profile>
+                <id>additionSubtractionTests</id>
+                <activation>
+                    <activeByDefault>false</activeByDefault>
+                </activation>
+                <properties>
+                    <suite.file>src/test/resources/AddSubtractTestSuite.xml</suite.file>
+                </properties>
+            </profile>
+
+            <profile>
+                <id>divisionMultiplicationTests</id>
+                <activation>
+                    <activeByDefault>false</activeByDefault>
+                </activation>
+                <properties>
+                    <suite.file>src/test/resources/MultiplyDivideTestSuite.xml</suite.file>
+                </properties>
+            </profile> -->
         <profile>
-            <id>additionSubtractionTests</id>
+            <id>Hw2FirstExerciseTests</id>
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
-                <suite.file>src/test/resources/AddSubtractTestSuite.xml</suite.file>
+                <suite.file>/src/test/resources/FirstExerciseTest.xml</suite.file>
             </properties>
         </profile>
-
         <profile>
-            <id>divisionMultiplicationTests</id>
+            <id>Hw2SecondExerciseTests</id>
             <activation>
                 <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
-                <suite.file>src/test/resources/MultiplyDivideTestSuite.xml</suite.file>
+                <suite.file>/src/test/resources/SecondExerciseTest.xml</suite.file>
             </properties>
         </profile>
     </profiles>
