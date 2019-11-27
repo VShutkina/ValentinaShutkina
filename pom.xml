@@ -39,7 +39,7 @@
         <profile>
             <id>additionSubtractionTests</id>
             <activation>
-                <activeByDefault>true</activeByDefault>
+                <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
                 <suite.file>src/test/resources/AddSubtractTestSuite.xml</suite.file>
@@ -55,6 +55,35 @@
                 <suite.file>src/test/resources/MultiplyDivideTestSuite.xml</suite.file>
             </properties>
         </profile>
+        <profile>
+            <id>Hw2AllExerciseTests</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <suite.file>src/test/resources/AllHw2ExercisesTest.xml</suite.file>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>Hw2FirstExerciseTests</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <suite.file>src/test/resources/FirstExerciseTest.xml</suite.file>
+            </properties>
+        </profile>
+        <profile>
+            <id>Hw2SecondExerciseTests</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <suite.file>/src/test/resources/SecondExerciseTest.xml</suite.file>
+            </properties>
+        </profile>
+
     </profiles>
 
     <dependencies>
