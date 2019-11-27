@@ -139,6 +139,6 @@ public class SecondExerciseTest extends AbstractBaseTest {
                 xpath("//ul[@class='panel-body-list logs']//li[contains(.,'Wind')]"));
         softAssert.assertTrue(falseLogCheckboxWind.getText().contains("Wind: condition changed to false"));
         softAssert.assertAll();
-        
+
     }
 }

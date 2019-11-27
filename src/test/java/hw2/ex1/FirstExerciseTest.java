@@ -39,7 +39,7 @@ public class FirstExerciseTest extends AbstractBaseTest {
         // 6. Assert that there are 4 items on the header section
         // are displayed and they have proper texts
         List<String> expectedHeaderListItems = Arrays.asList("HOME", "CONTACT FORM", "SERVICE", "METALS & COLORS");
-        List<WebElement> headerListItems = driver.findElements(By.xpath("//ul[@class='uui-navigation nav navbar-nav m-l8']/li"));
+        List<WebElement> headerListItems = driver.findElements(By.xpath("//ul[contains(@class,'m-l8')]/li"));
         List<String> actualHeaderListItems = new ArrayList<>();
         headerListItems.forEach(t -> actualHeaderListItems.add(t.getText()));
         assertEquals(actualHeaderListItems, expectedHeaderListItems);
