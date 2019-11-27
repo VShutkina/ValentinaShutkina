@@ -7,6 +7,10 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
@@ -38,24 +42,13 @@ public class SecondExerciseTest extends AbstractBaseTest {
         WebElement serviceHeaderSubMenu = driver.findElement(By.
                 xpath("//ul[@class='uui-navigation nav navbar-nav m-l8']/li[@class='dropdown']"));
         serviceHeaderSubMenu.click();
-        WebElement serviceSupportSubCategory =
-                driver.findElement(By.xpath("//ul[@class='dropdown-menu']//li//a[contains(.,'Support')]"));
-        softAssert.assertTrue(serviceSupportSubCategory.isDisplayed());
-        WebElement serviceDatesSubCategory =
-                driver.findElement(By.xpath("//ul[@class='dropdown-menu']//li//a[contains(.,'Dates')]"));
-        WebElement serviceComplTableSubCategory =
-                driver.findElement(By.xpath("//ul[@class='dropdown-menu']//li//a[contains(.,'Complex Table')]"));
-        WebElement serviceSimplTableSubCategory =
-                driver.findElement(By.xpath("//ul[@class='dropdown-menu']//li//a[contains(.,'Simple Table')]"));
-        WebElement serviceTableWithPagesSubCategory =
-                driver.findElement(By.xpath("//ul[@class='dropdown-menu']//li//a[contains(.,'Table with pages')]"));
-        WebElement serviceDiffElemSubCategory =
-                driver.findElement(By.xpath("//ul[@class='dropdown-menu']//li//a[contains(.,'Different elements')]"));
-        softAssert.assertTrue(serviceDatesSubCategory.isDisplayed());
-        softAssert.assertTrue(serviceComplTableSubCategory.isDisplayed());
-        softAssert.assertTrue(serviceSimplTableSubCategory.isDisplayed());
-        softAssert.assertTrue(serviceTableWithPagesSubCategory.isDisplayed());
-        softAssert.assertTrue(serviceDiffElemSubCategory.isDisplayed());
+        List<String> expectedServiceSubItems = Arrays.asList("Support", "Dates", "Complex Table", "Simple Table", "Table with pages", "Different elements");
+        List<WebElement> actualServiceSubItems = new ArrayList<>();
+
+        expectedServiceSubItems.forEach(
+                t -> actualServiceSubItems.add(
+                        driver.findElement(By.xpath("//ul[@class='dropdown-menu']//li//a[contains(.,'" + t + "')]"))));
+        actualServiceSubItems.forEach(t -> softAssert.assertTrue(t.isDisplayed()));
         softAssert.assertAll();
 
         // 6. Click on Service subcategory in the left section
@@ -63,28 +56,18 @@ public class SecondExerciseTest extends AbstractBaseTest {
         WebElement serviceHeaderLeftPanel = driver.findElement(By.
                 xpath("//li[@class='menu-title']//a[contains(.,'Service')]"));
         serviceHeaderLeftPanel.click();
-        WebElement serviceSupportSubCategoryLeftPanel = driver.findElement(
-                By.xpath("//ul[@class='sub']//li[contains(.,'Support')]"));
-        WebElement serviceDatesSubCategoryLeftPanel = driver.findElement(
-                By.xpath("//ul[@class='sub']//li[contains(.,'Dates')]"));
-        WebElement serviceComplTableSubCategoryLeftPanel = driver.findElement(
-                By.xpath("//ul[@class='sub']//li[contains(.,'Complex Table')]"));
-        WebElement serviceSimplTableSubCategoryLeftPanel = driver.findElement(
-                By.xpath("//ul[@class='sub']//li[contains(.,'Simple Table')]"));
-        WebElement serviceTableWithPagesSubCategoryLeftPanel = driver.findElement(
-                By.xpath("//ul[@class='sub']//li[contains(.,'Table with pages')]"));
-        WebElement serviceDiffElemSubCategoryLeftPanel = driver.findElement(
-                By.xpath("//ul[@class='sub']//li[contains(.,'Different elements')]"));
-        softAssert.assertTrue(serviceSupportSubCategoryLeftPanel.isDisplayed());
-        softAssert.assertTrue(serviceDatesSubCategoryLeftPanel.isDisplayed());
-        softAssert.assertTrue(serviceComplTableSubCategoryLeftPanel.isDisplayed());
-        softAssert.assertTrue(serviceSimplTableSubCategoryLeftPanel.isDisplayed());
-        softAssert.assertTrue(serviceTableWithPagesSubCategoryLeftPanel.isDisplayed());
-        softAssert.assertTrue(serviceDiffElemSubCategoryLeftPanel.isDisplayed());
+        List<WebElement> actualServiceSubItemsLeftPanel = new ArrayList<>();
+        expectedServiceSubItems.forEach(t -> actualServiceSubItemsLeftPanel.add(
+                driver.findElement(By.xpath("//ul[@class='sub']//li[contains(.,'" + t + "')]"))
+        ));
+
+        actualServiceSubItemsLeftPanel.forEach(t -> softAssert.assertTrue(t.isDisplayed()));
         softAssert.assertAll();
 
         // 7. Open through the header menu Service -> Different Elements Page
         serviceHeaderSubMenu.click();
+        WebElement serviceDiffElemSubCategory =
+                driver.findElement(By.xpath("//ul[@class='dropdown-menu']//li//a[contains(.,'Different elements')]"));
         serviceDiffElemSubCategory.click();
 
         // 8. Check interface on Different elements page,
@@ -95,22 +78,13 @@ public class SecondExerciseTest extends AbstractBaseTest {
         softAssert.assertTrue(Button.isDisplayed());
         WebElement dropdown = driver.findElement(By.cssSelector(".colors"));
         softAssert.assertTrue(dropdown.isDisplayed());
-        WebElement checkboxWater = driver.findElement(By.xpath("//label[@class='label-checkbox' and contains(.,'Water')]"));
-        softAssert.assertTrue(checkboxWater.isDisplayed());
-        WebElement checkboxEarth = driver.findElement(By.xpath("//label[@class='label-checkbox' and contains(.,'Earth')]"));
-        softAssert.assertTrue(checkboxEarth.isDisplayed());
-        WebElement checkboxWind = driver.findElement(By.xpath("//label[@class='label-checkbox' and contains(.,'Wind')]"));
-        softAssert.assertTrue(checkboxWind.isDisplayed());
-        WebElement checkboxFire = driver.findElement(By.xpath("//label[@class='label-checkbox' and contains(.,'Fire')]"));
-        softAssert.assertTrue(checkboxFire.isDisplayed());
-        WebElement radioGold = driver.findElement(By.xpath("//label[@class='label-radio' and contains(.,'Gold')]"));
-        softAssert.assertTrue(radioGold.isDisplayed());
-        WebElement radioSilver = driver.findElement(By.xpath("//label[@class='label-radio' and contains(.,'Silver')]"));
-        softAssert.assertTrue(radioSilver.isDisplayed());
-        WebElement radioBronze = driver.findElement(By.xpath("//label[@class='label-radio' and contains(.,'Bronze')]"));
-        softAssert.assertTrue(radioBronze.isDisplayed());
-        WebElement radioSelen = driver.findElement(By.xpath("//label[@class='label-radio' and contains(.,'Selen')]"));
-        softAssert.assertTrue(radioSelen.isDisplayed());
+        List<WebElement> checkBoxElements = driver.findElements(By.xpath("//label[@class='label-checkbox']"));
+        //do soft assertion
+        checkBoxElements.forEach(t -> softAssert.assertTrue(t.isDisplayed()));
+        List<WebElement> radioBtnsElements = driver.findElements(By.xpath("//label[@class='label-radio']"));
+        //do soft assertion
+        radioBtnsElements.forEach(a -> softAssert.assertTrue(a.isDisplayed()));
+
         softAssert.assertAll();
 
         // 9. Assert that there is Right Section
@@ -122,22 +96,26 @@ public class SecondExerciseTest extends AbstractBaseTest {
         // 11. Select checkboxes
         // 12. Assert that for each checkbox there is an individual log
         // row and value is corresponded to the status of checkbox.
+        WebElement checkboxWater = driver.findElement(By.xpath("//label[@class='label-checkbox' and contains(.,'Water')]"));
+        WebElement checkboxWind = driver.findElement(By.xpath("//label[@class='label-checkbox' and contains(.,'Wind')]"));
+
         checkboxWater.click();
         WebElement trueLogCheckboxWater = driver.findElement(By.
                 xpath("//ul[@class='panel-body-list logs']//li[contains(.,'Water')]"));
-        assertTrue(trueLogCheckboxWater.getText().contains("Water: condition changed to true"));
+        softAssert.assertTrue(trueLogCheckboxWater.getText().contains("Water: condition changed to true"));
         checkboxWind.click();
         WebElement trueLogCheckboxWind = driver.findElement(By.
                 xpath("//ul[@class='panel-body-list logs']//li[contains(.,'Wind')]"));
-        assertTrue(trueLogCheckboxWind.getText().contains("Wind: condition changed to true"));
+        softAssert.assertTrue(trueLogCheckboxWind.getText().contains("Wind: condition changed to true"));
 
         // 13. Select radio
         // 14. Assert that for radiobutton there is a log row
         // and value is corresponded to the status of radiobutton.
+        WebElement radioSelen = driver.findElement(By.xpath("//label[@class='label-radio' and contains(.,'Selen')]"));
         radioSelen.click();
         WebElement trueLogradioSelen = driver.findElement(By.
                 xpath("//ul[@class='panel-body-list logs']//li[contains(.,'metal')]"));
-        assertTrue(trueLogradioSelen.getText().contains("value changed to Selen"));
+        softAssert.assertTrue(trueLogradioSelen.getText().contains("value changed to Selen"));
 
         // 15. Select in dropdown
         // 16. Assert that for dropdown there is a log row
@@ -147,7 +125,7 @@ public class SecondExerciseTest extends AbstractBaseTest {
         colorsSelector.selectByVisibleText("Yellow");
         WebElement trueLogColorsSelector = driver.findElement(By.
                 xpath("//ul[@class='panel-body-list logs']//li[contains(.,'Colors')]"));
-        assertTrue(trueLogColorsSelector.getText().contains("Colors: value changed to Yellow"));
+        softAssert.assertTrue(trueLogColorsSelector.getText().contains("Colors: value changed to Yellow"));
 
         // 17. Unselect and assert checkboxes
         // 18. Assert that for each checkbox there is an individual log row
@@ -155,12 +133,12 @@ public class SecondExerciseTest extends AbstractBaseTest {
         checkboxWater.click();
         WebElement falseLogCheckboxWater = driver.findElement(By.
                 xpath("//ul[@class='panel-body-list logs']//li[contains(.,'Water')]"));
-        assertTrue(falseLogCheckboxWater.getText().contains("Water: condition changed to false"));
+        softAssert.assertTrue(falseLogCheckboxWater.getText().contains("Water: condition changed to false"));
         checkboxWind.click();
         WebElement falseLogCheckboxWind = driver.findElement(By.
                 xpath("//ul[@class='panel-body-list logs']//li[contains(.,'Wind')]"));
-        assertTrue(falseLogCheckboxWind.getText().contains("Wind: condition changed to false"));
-
-
+        softAssert.assertTrue(falseLogCheckboxWind.getText().contains("Wind: condition changed to false"));
+        softAssert.assertAll();
+        
     }
 }
