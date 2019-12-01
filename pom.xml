@@ -19,6 +19,7 @@
         <webdrivermanager.version>3.7.1</webdrivermanager.version>
         <common.io.version>2.6</common.io.version>
         <calculator.version>1.0</calculator.version>
+        <selenide.version>5.5.0</selenide.version>
 
         <!-- Plugins version -->
         <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
@@ -32,7 +33,7 @@
                 <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
-                <suite.file>src/test/resources/MainCalcTestSuite.xml</suite.file>
+                <suite.file>src/test/resources/hw1/MainCalcTestSuite.xml</suite.file>
             </properties>
         </profile>
 
@@ -42,7 +43,7 @@
                 <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
-                <suite.file>src/test/resources/AddSubtractTestSuite.xml</suite.file>
+                <suite.file>src/test/resources/hw1/AddSubtractTestSuite.xml</suite.file>
             </properties>
         </profile>
 
@@ -52,16 +53,16 @@
                 <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
-                <suite.file>src/test/resources/MultiplyDivideTestSuite.xml</suite.file>
+                <suite.file>src/test/resources/hw1/MultiplyDivideTestSuite.xml</suite.file>
             </properties>
         </profile>
         <profile>
             <id>Hw2AllExerciseTests</id>
             <activation>
-                <activeByDefault>true</activeByDefault>
+                <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
-                <suite.file>src/test/resources/AllHw2ExercisesTest.xml</suite.file>
+                <suite.file>src/test/resources/hw2/AllHw2ExercisesTest.xml</suite.file>
             </properties>
         </profile>
 
@@ -71,7 +72,7 @@
                 <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
-                <suite.file>src/test/resources/FirstExerciseTest.xml</suite.file>
+                <suite.file>src/test/resources/hw2/FirstExerciseTest.xml</suite.file>
             </properties>
         </profile>
         <profile>
@@ -80,7 +81,36 @@
                 <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
-                <suite.file>/src/test/resources/SecondExerciseTest.xml</suite.file>
+                <suite.file>src/test/resources/hw2/SecondExerciseTest.xml</suite.file>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>Hw4AllExerciseTests</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <suite.file>src/test/resources/hw4/AllExercisesTest.xml</suite.file>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>Hw4FirstExerciseTests</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <suite.file>src/test/resources/hw4/FirstExerciseTest.xml</suite.file>
+            </properties>
+        </profile>
+        <profile>
+            <id>Hw4SecondExerciseTests</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <suite.file>src/test/resources/hw4/SecondExerciseTest.xml</suite.file>
             </properties>
         </profile>
 
@@ -117,6 +147,11 @@
             <version>${calculator.version}</version>
             <scope>system</scope>
             <systemPath>${project.basedir}/src/main/resources/calculator-1.0.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>com.codeborne</groupId>
+            <artifactId>selenide</artifactId>
+            <version>${selenide.version}</version>
         </dependency>
     </dependencies>
 
