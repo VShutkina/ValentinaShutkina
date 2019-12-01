@@ -1,13 +1,18 @@
-package hw3;
+package hw3.ex2;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
+import hw3.AbstractBaseTest;
+import hw3.DifferentElementsPage;
+import hw3.HomePage;
+import hw3.enums.HeaderListItems;
+import hw3.enums.HeaderServiceItems;
+import hw3.enums.LeftSideListItems;
+import hw3.enums.LeftSideServiceItems;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
@@ -30,67 +35,53 @@ public class SecondExerciseTest extends AbstractBaseTest {
         assertEquals(homePage.getPageTitle(), "Home Page");
 
         // 3. Perform login
-        homePage.login("epam", "1234");
+        homePage.login(testProperties.getProperty("username"), testProperties.getProperty("password"));
 
         // 4. Assert User name in the left-top side of screen that user is loggined
-        assertEquals(homePage.getUsernameLabelText(), "PITER CHAILOVSKII");
+        assertEquals(homePage.getUsernameLabelText(), testProperties.getProperty("expectedUserName"));
 
         // 5. Click on "Service" subcategory in the header
         // and check that drop down contains options
-        differentElementsPage.getHeaderMenu().headerMenuItemClick("SERVICE");
-        /*WebElement serviceHeaderSubMenu = driver.findElement(By.
-                xpath("//ul[@class='uui-navigation nav navbar-nav m-l8']/li[@class='dropdown']"));
-        serviceHeaderSubMenu.click();*/
-        List<String> expectedServiceSubItems = Arrays.asList("Support", "Dates", "Complex Table", "Simple Table", "Table with pages", "Different elements");
-        List<WebElement> actualServiceSubItems = new ArrayList<>();
-
-        expectedServiceSubItems.forEach(
-                t -> actualServiceSubItems.add(
-                        driver.findElement(By.xpath("//ul[@class='dropdown-menu']//li//a[contains(.,'" + t + "')]"))));
-        actualServiceSubItems.forEach(t -> softAssert.assertTrue(t.isDisplayed()));
+        homePage.getHeaderMenu().headerMenuItemClick(HeaderListItems.SERVICE.name());
+        List<String> headerMenuExpectedServiceSubItems = Stream.of(HeaderServiceItems.values())
+                .map(HeaderServiceItems::getName)
+                .collect(Collectors.toList());
+        softAssert.assertEquals(homePage
+                        .getHeaderMenu()
+                        .getHeaderMenuServiceItemsText(),
+                headerMenuExpectedServiceSubItems);
         softAssert.assertAll();
 
         // 6. Click on Service subcategory in the left section
         // and check that drop down contains options
-        WebElement serviceHeaderLeftPanel = driver.findElement(By.
-                xpath("//li[@class='menu-title']//a[contains(.,'Service')]"));
-        serviceHeaderLeftPanel.click();
-        List<WebElement> actualServiceSubItemsLeftPanel = new ArrayList<>();
-        expectedServiceSubItems.forEach(t -> actualServiceSubItemsLeftPanel.add(
-                driver.findElement(By.xpath("//ul[@class='sub']//li[contains(.,'" + t + "')]"))
-        ));
-
-        actualServiceSubItemsLeftPanel.forEach(t -> softAssert.assertTrue(t.isDisplayed()));
+        homePage.getLeftSide().leftPanelMenuItemsClick(LeftSideListItems.SERVICE_LEFT_PANEL.getValue());
+        List<String> leftPanelExpectedServiceSubItems = Stream.of(LeftSideServiceItems.values())
+                .map(LeftSideServiceItems::getName)
+                .collect(Collectors.toList());
+        softAssert.assertEquals(homePage
+                        .getLeftSide()
+                        .getLeftPanelMenuServiceItemsText(),
+                leftPanelExpectedServiceSubItems);
         softAssert.assertAll();
 
         // 7. Open through the header menu Service -> Different Elements Page
-        differentElementsPage.getHeaderMenu().headerMenuItemClick("SERVICE");
-        WebElement serviceDiffElemSubCategory =
-                driver.findElement(By.xpath("//ul[@class='dropdown-menu']//li//a[contains(.,'Different elements')]"));
-        serviceDiffElemSubCategory.click();
+        homePage.getHeaderMenu().headerMenuItemClick(HeaderListItems.SERVICE.getName());
+        homePage.getHeaderMenu().headerSubMenuItemClick(HeaderServiceItems.DIFFERENT_ELEMENTS.getName());
 
         // 8. Check interface on Different elements page,
         // it contains all needed elements
-        WebElement defaultButton = driver.findElement(By.name("Default Button"));
-        softAssert.assertTrue(defaultButton.isDisplayed());
-        WebElement Button = driver.findElement(By.cssSelector(".uui-button[type=button]"));
-        softAssert.assertTrue(Button.isDisplayed());
-        WebElement dropdown = driver.findElement(By.cssSelector(".colors"));
-        softAssert.assertTrue(dropdown.isDisplayed());
-        List<WebElement> checkBoxElements = driver.findElements(By.xpath("//label[@class='label-checkbox']"));
-        //do soft assertion
-        checkBoxElements.forEach(t -> softAssert.assertTrue(t.isDisplayed()));
-        List<WebElement> radioBtnsElements = driver.findElements(By.xpath("//label[@class='label-radio']"));
-        //do soft assertion
-        radioBtnsElements.forEach(a -> softAssert.assertTrue(a.isDisplayed()));
-
+        softAssert.assertTrue(differentElementsPage.getDefaultButton().isDisplayed());
+        softAssert.assertTrue(differentElementsPage.getButton().isDisplayed());
+        softAssert.assertTrue(differentElementsPage.getDropdown().isDisplayed());
+        differentElementsPage.getCheckBoxList().forEach(t -> softAssert.assertTrue(t.isDisplayed()));
+        differentElementsPage.getRadioButtonsList().forEach(a -> softAssert.assertTrue(a.isDisplayed()));
         softAssert.assertAll();
 
         // 9. Assert that there is Right Section
-        assertTrue(driver.findElement(By.id("mCSB_2")).isDisplayed());
+        assertTrue(differentElementsPage.getRightSection().isDisplayed());
 
         // 10. Assert that there is Left Section
-        assertTrue(driver.findElement(By.id("mCSB_1")).isDisplayed());
+        assertTrue(differentElementsPage.getLeftSide().getWebElementLeftSide().isDisplayed());
 
         // 11. Select checkboxes
         // 12. Assert that for each checkbox there is an individual log

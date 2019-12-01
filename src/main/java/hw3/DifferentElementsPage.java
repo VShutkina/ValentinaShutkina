@@ -18,17 +18,8 @@ public class DifferentElementsPage extends AbstractBasePage {
     @FindBy(css = ".colors")
     private WebElement dropdown;
 
-    @FindBy(xpath = "//label[@class='label-checkbox']")
-    private WebElement checkBoxElements;
-
-    @FindBy(xpath = "//label[@class='label-radio']")
-    private WebElement radioBtnsElements;
-
     @FindBy(id = "mCSB_2")
     private WebElement rightSection;
-
-    @FindBy(id = "mCSB_1")
-    private WebElement leftSection;
 
     @FindBy(xpath = "//label[@class='label-checkbox']")
     private List<WebElement> checkBoxList;
@@ -45,6 +36,26 @@ public class DifferentElementsPage extends AbstractBasePage {
 
     public DifferentElementsPage(WebDriver driver) {
         super(driver);
+    }
+
+    public WebElement getDefaultButton() {
+        return this.defaultButton;
+    }
+
+    public WebElement getButton() {
+        return this.button;
+    }
+
+    public WebElement getDropdown() {
+        return this.dropdown;
+    }
+
+    public List<WebElement> getCheckBoxList() {
+        return this.checkBoxList;
+    }
+
+    public List<WebElement> getRadioButtonsList() {
+        return this.radioButtonsList;
     }
 
     public void setCheckBox(String checkBoxName) {
@@ -72,6 +83,10 @@ public class DifferentElementsPage extends AbstractBasePage {
 
     public void selectColor(String color) {
         new Select(colorsSelector).selectByVisibleText(color);
+    }
+
+    public WebElement getRightSection() {
+        return this.rightSection;
     }
 
 }
