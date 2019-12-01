@@ -32,7 +32,7 @@
                 <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
-                <suite.file>src/test/resources/MainCalcTestSuite.xml</suite.file>
+                <suite.file>src/test/resources/hw1/MainCalcTestSuite.xml</suite.file>
             </properties>
         </profile>
 
@@ -42,7 +42,7 @@
                 <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
-                <suite.file>src/test/resources/AddSubtractTestSuite.xml</suite.file>
+                <suite.file>src/test/resources/hw1/AddSubtractTestSuite.xml</suite.file>
             </properties>
         </profile>
 
@@ -52,16 +52,16 @@
                 <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
-                <suite.file>src/test/resources/MultiplyDivideTestSuite.xml</suite.file>
+                <suite.file>src/test/resources/hw1/MultiplyDivideTestSuite.xml</suite.file>
             </properties>
         </profile>
         <profile>
             <id>Hw2AllExerciseTests</id>
             <activation>
-                <activeByDefault>true</activeByDefault>
+                <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
-                <suite.file>src/test/resources/AllHw2ExercisesTest.xml</suite.file>
+                <suite.file>src/test/resources/hw2/AllHw2ExercisesTest.xml</suite.file>
             </properties>
         </profile>
 
@@ -71,7 +71,7 @@
                 <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
-                <suite.file>src/test/resources/FirstExerciseTest.xml</suite.file>
+                <suite.file>src/test/resources/hw2/FirstExerciseTest.xml</suite.file>
             </properties>
         </profile>
         <profile>
@@ -80,7 +80,35 @@
                 <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
-                <suite.file>/src/test/resources/SecondExerciseTest.xml</suite.file>
+                <suite.file>src/test/resources/hw2/SecondExerciseTest.xml</suite.file>
+            </properties>
+        </profile>
+        <profile>
+            <id>Hw3AllExerciseTests</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <suite.file>src/test/resources/hw3/AllExercisesTest.xml</suite.file>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>Hw3FirstExerciseTests</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <suite.file>src/test/resources/hw3/FirstExerciseTest.xml</suite.file>
+            </properties>
+        </profile>
+        <profile>
+            <id>Hw3SecondExerciseTests</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <suite.file>src/test/resources/hw3/SecondExerciseTest.xml</suite.file>
             </properties>
         </profile>
 
