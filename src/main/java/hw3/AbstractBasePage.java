@@ -1,5 +1,8 @@
 package hw3;
 
+import hw3.components.Footer;
+import hw3.components.HeaderMenu;
+import hw3.components.LeftSide;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;

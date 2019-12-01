@@ -61,10 +61,19 @@ public class HomePage extends AbstractBasePage {
         driver.get(URL);
     }
 
-    public void login(final String username, final String password) {
+    public void userIconClick() {
         userIcon.click();
+    }
+
+    public void setTextUsernameTextField(final String username) {
         userNameTextField.sendKeys(username);
+    }
+
+    public void setTextPasswordTextField(final String password) {
         passwordTextField.sendKeys(password);
+    }
+
+    public void loginButtonClick() {
         loginButton.click();
     }
 
