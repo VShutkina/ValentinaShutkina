@@ -80,7 +80,7 @@
                 <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
-                <suite.file>/src/test/resources/hw2/SecondExerciseTest.xml</suite.file>
+                <suite.file>src/test/resources/hw2/SecondExerciseTest.xml</suite.file>
             </properties>
         </profile>
         <profile>
@@ -108,7 +108,7 @@
                 <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
-                <suite.file>/src/test/resources/hw3/SecondExerciseTest.xml</suite.file>
+                <suite.file>src/test/resources/hw3/SecondExerciseTest.xml</suite.file>
             </properties>
         </profile>
 
