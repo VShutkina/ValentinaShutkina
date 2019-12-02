@@ -4,6 +4,10 @@ import hw4.HomePage;
 import hw4.MetalsColorsPage;
 import hw4.common.AbstractBaseTest;
 import hw4.common.MetalColorPageDataProvider;
+import hw4.steps.MetalColorPageActionSteps;
+import hw4.steps.MetalColorPageAssertionSteps;
+import hw4.testdata.MetalColorPageTestData;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import static com.codeborne.selenide.Condition.text;
@@ -13,14 +17,26 @@ import static org.testng.Assert.assertEquals;
 
 public class SecondExerciseTest extends AbstractBaseTest {
 
+    private MetalColorPageActionSteps metalColorPageActionSteps;
+    private MetalColorPageAssertionSteps metalColorPageAssertionSteps;
+
+    @Override
+    @BeforeMethod
+    public void setUp() {
+        super.setUp();
+        MetalColorPageActionSteps metalColorPageActionSteps = new MetalColorPageActionSteps();
+        MetalColorPageAssertionSteps metalColorPageAssertionSteps = new MetalColorPageAssertionSteps();
+    }
+
     @Test(dataProviderClass = MetalColorPageDataProvider.class,
             dataProvider = "TestDataMetalColor")
-    public void secondExerciseTest() {
+    public void secondExerciseTest(MetalColorPageTestData testData) {
 
         // 1. Open test site by URL
         open("https://epam.github.io/JDI/");
         HomePage homePage = new HomePage();
         MetalsColorsPage metalsColorsPage = new MetalsColorsPage();
+
 
         // 2. Assert Browser title
         assertEquals(homePage.getTitle(), "Home Page");
@@ -35,11 +51,15 @@ public class SecondExerciseTest extends AbstractBaseTest {
         homePage.getHeaderMenu().headerMenuItemClick(METALS_AND_COLORS.getName());
 
         //6. Fill form on the page
+        metalColorPageActionSteps.fillFormOnMetalsColorsPage(metalsColorsPage, testData);
 
         //7. Click “Submit” button
         metalsColorsPage.clickSubmitButton();
 
         //8. Check Results block output on the right-side
+
+        //logout
+        metalsColorsPage.getHeaderMenu().logout();
 
     }
 }

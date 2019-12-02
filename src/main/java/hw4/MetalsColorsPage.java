@@ -32,7 +32,7 @@ public class MetalsColorsPage extends AbstractBasePage {
     private ElementsCollection vegetablesDropdownItems;
 
     @FindBy(css = "div#metals>select")
-    private ElementsCollection metalDropdown;
+    private SelenideElement metalDropdown;
 
     public MetalsColorsPage() {
         page(this);
@@ -42,20 +42,18 @@ public class MetalsColorsPage extends AbstractBasePage {
         submitButton.click();
     }
 
-    public void clickSummaryRadioButton(String radioButton) {
+    public void clickSummaryRadioButton(List<String> radioButton) {
         for (SelenideElement rb : summaryRadioButtons) {
             if (radioButton.equals(rb.getText())) {
                 rb.click();
-                break;
             }
         }
     }
 
-    public void setCheckboxElement(String checkbox) {
+    public void setCheckboxElement(List<String> checkbox) {
         for (SelenideElement cb : checkboxElements) {
             if (checkbox.equals(cb.getText())) {
                 cb.click();
-                break;
             }
         }
     }
@@ -76,7 +74,16 @@ public class MetalsColorsPage extends AbstractBasePage {
         }
     }
 
-    public ElementsCollection getMetalDropdown() {
+    public void unsetVegetablesItem() {
+        for (SelenideElement di : vegetablesDropdownItems) {
+            if (vegetablesDropdownItems.contains("Vegetables")) {
+                di.click();
+                break;
+            }
+        }
+    }
+
+    public SelenideElement getMetalDropdown() {
         return metalDropdown;
     }
 }

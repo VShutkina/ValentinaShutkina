@@ -1,4 +1,4 @@
-package hw4.common;
+package hw4.testdata;
 
 import java.util.List;
 

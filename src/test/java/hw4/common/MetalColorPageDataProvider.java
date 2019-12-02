@@ -1,11 +1,15 @@
 package hw4.common;
 
-import hw4.enums.*;
+import hw4.testdata.MetalColorPageTestData;
 import org.testng.annotations.DataProvider;
 
 import java.util.Arrays;
 
-import static hw4.enums.SummaryItems.THREE;
+import static hw4.enums.ColorsItems.*;
+import static hw4.enums.ElementsItems.*;
+import static hw4.enums.MetalsItems.*;
+import static hw4.enums.SummaryItems.*;
+import static hw4.enums.VegetablesItems.*;
 
 public class MetalColorPageDataProvider {
 
@@ -13,34 +17,34 @@ public class MetalColorPageDataProvider {
     public Object[][] testDataMetalColor() {
         return new Object[][]{
                 {MetalColorPageTestData.metalColorBuilder().
-                        setElementsList(Arrays.asList(ElementsItems.EARTH.getValue())).
-                        setColor(ColorsItems.YELLOW.getValue()).
-                        setMetal(MetalsItems.GOLD.getValue()).
+                        setElementsList(Arrays.asList(EARTH.getValue())).
+                        setColor(YELLOW.getValue()).
+                        setMetal(GOLD.getValue()).
                         build()},
                 {MetalColorPageTestData.metalColorBuilder().
-                        setSummaryList(Arrays.asList(THREE.getValue(), SummaryItems.EIGHT.getValue())).
-                        setVegetablesList(Arrays.asList(VegetablesItems.CUCUMBER.getValue(), VegetablesItems.TOMATO.getValue())).
+                        setSummaryList(Arrays.asList(THREE.getValue(), EIGHT.getValue())).
+                        setVegetablesList(Arrays.asList(CUCUMBER.getValue(), TOMATO.getValue())).
                         build()},
                 {MetalColorPageTestData.metalColorBuilder().
-                        setSummaryList(Arrays.asList(THREE.getValue(), SummaryItems.TWO.getValue())).
-                        setElementsList(Arrays.asList(ElementsItems.WATTER.getValue(), ElementsItems.WIND.getValue(), ElementsItems.FIRE.getValue())).
-                        setMetal(MetalsItems.BRONZE.getValue()).
-                        setVegetablesList(Arrays.asList(VegetablesItems.ONION.getValue())).
+                        setSummaryList(Arrays.asList(THREE.getValue(), TWO.getValue())).
+                        setElementsList(Arrays.asList(WATTER.getValue(), WIND.getValue(), FIRE.getValue())).
+                        setMetal(BRONZE.getValue()).
+                        setVegetablesList(Arrays.asList(ONION.getValue())).
                         build()},
                 {MetalColorPageTestData.metalColorBuilder().
-                        setSummaryList(Arrays.asList(SummaryItems.SIX.getValue(), SummaryItems.FIVE.getValue())).
-                        setElementsList(Arrays.asList(ElementsItems.WATTER.getValue())).
-                        setColor(ColorsItems.GREEN.getValue()).
-                        setMetal(MetalsItems.SELEN.getValue()).
-                        setVegetablesList(Arrays.asList(VegetablesItems.TOMATO.getValue(),
-                                VegetablesItems.CUCUMBER.getValue(),
-                                VegetablesItems.ONION.getValue(),
-                                VegetablesItems.VEGETABLES.getValue())).
+                        setSummaryList(Arrays.asList(SIX.getValue(), FIVE.getValue())).
+                        setElementsList(Arrays.asList(WATTER.getValue())).
+                        setColor(GREEN.getValue()).
+                        setMetal(SELEN.getValue()).
+                        setVegetablesList(Arrays.asList(TOMATO.getValue(),
+                                CUCUMBER.getValue(),
+                                ONION.getValue(),
+                                VEGETABLES.getValue())).
                         build()},
                 {MetalColorPageTestData.metalColorBuilder().
-                        setElementsList(Arrays.asList(ElementsItems.FIRE.getValue())).
-                        setColor(ColorsItems.BLUE.getValue()).
-                        setVegetablesList(Arrays.asList(VegetablesItems.CUCUMBER.getValue(), VegetablesItems.TOMATO.getValue(), VegetablesItems.VEGETABLES.getValue())).
+                        setElementsList(Arrays.asList(FIRE.getValue())).
+                        setColor(BLUE.getValue()).
+                        setVegetablesList(Arrays.asList(CUCUMBER.getValue(), TOMATO.getValue(), VEGETABLES.getValue())).
                         build()},
         };
     }

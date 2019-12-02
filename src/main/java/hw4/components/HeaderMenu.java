@@ -19,6 +19,12 @@ public class HeaderMenu {
     @FindBy(xpath = "//ul[@class='dropdown-menu']//li//a")
     private ElementsCollection serviceCollectiomSubItems;
 
+    @FindBy(xpath = "//div[@class='logout']")
+    private SelenideElement logoutButton;
+
+    @FindBy(id = "user-name")
+    private SelenideElement loggedUser;
+
     public HeaderMenu() {
         page(this);
     }
@@ -43,5 +49,10 @@ public class HeaderMenu {
 
     public ElementsCollection getServiceCollectiomSubItems() {
         return serviceCollectiomSubItems;
+    }
+
+    public void logout() {
+        loggedUser.click();
+        logoutButton.click();
     }
 }
