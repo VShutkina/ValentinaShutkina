@@ -89,6 +89,9 @@ public class FirstExerciseTest extends AbstractBaseTest {
 
         //15. Assert the table contains only records with Search field value
         tableWithPagesPage.getSortedTableRows().forEach(e -> e.shouldHave(text(searchText)));
+
+        //logout
+        tableWithPagesPage.getHeaderMenu().logout();
     }
 
 
