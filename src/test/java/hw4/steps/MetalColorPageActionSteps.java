@@ -16,11 +16,13 @@ public class MetalColorPageActionSteps extends AbstractSteps {
         }
 
         if (testData.getColor() != null) {
-            metalsColorsPage.getColorDropdown().selectOptionByValue(testData.getColor());
+            metalsColorsPage.getColorButton().click();
+            metalsColorsPage.clickColorDropdown(testData.getColor());
         }
 
         if (testData.getMetal() != null) {
-            metalsColorsPage.getMetalDropdown().selectOptionByValue(testData.getMetal());
+            metalsColorsPage.getMetalButton().pressEnter();
+            metalsColorsPage.selectMetalDropdown(testData.getMetal());
         }
 
         if (testData.getVegetablesList() != null) {

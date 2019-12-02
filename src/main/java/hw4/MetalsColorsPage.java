@@ -22,17 +22,20 @@ public class MetalsColorsPage extends AbstractBasePage {
     @FindBy(css = ".checkbox>label")
     private ElementsCollection checkboxElements;
 
-    @FindBy(css = "div#colors>select")
-    private SelenideElement colorDropdown;
+    @FindBy(css = "button[title='Colors']")
+    private SelenideElement colorButton;
+
+    @FindBy(xpath = "//div[contains(@class, 'uui-form-element open')]//li//a")
+    private ElementsCollection dropdownOptions;
 
     @FindBy(css = "#salad-dropdown>button")
     private SelenideElement vegetablesButton;
 
-    @FindBy(css = "ul.dropdown-menu>li>a>input[type='checkbox']")
+    @FindBy(css = "ul.dropdown-menu>li>a>label")
     private ElementsCollection vegetablesDropdownItems;
 
-    @FindBy(css = "div#metals>select")
-    private SelenideElement metalDropdown;
+    @FindBy(css = "button[title='Metals']")
+    private SelenideElement metalButton;
 
     public MetalsColorsPage() {
         page(this);
@@ -44,7 +47,7 @@ public class MetalsColorsPage extends AbstractBasePage {
 
     public void clickSummaryRadioButton(List<String> radioButton) {
         for (SelenideElement rb : summaryRadioButtons) {
-            if (radioButton.equals(rb.getText())) {
+            if (radioButton.contains(rb.getText())) {
                 rb.click();
             }
         }
@@ -52,14 +55,27 @@ public class MetalsColorsPage extends AbstractBasePage {
 
     public void setCheckboxElement(List<String> checkbox) {
         for (SelenideElement cb : checkboxElements) {
-            if (checkbox.equals(cb.getText())) {
+            if (checkbox.contains(cb.getText())) {
                 cb.click();
             }
         }
     }
 
-    public SelenideElement getColorDropdown() {
-        return colorDropdown;
+    public SelenideElement getColorButton() {
+        return colorButton;
+    }
+
+    public SelenideElement getMetalButton() {
+        return metalButton;
+    }
+
+    public void clickColorDropdown(String colorOption) {
+        for (SelenideElement colOpt : dropdownOptions) {
+            if (colOpt.getText().equals(colorOption)) {
+                colOpt.click();
+                break;
+            }
+        }
     }
 
     public void clickVegetablesButton() {
@@ -76,14 +92,23 @@ public class MetalsColorsPage extends AbstractBasePage {
 
     public void unsetVegetablesItem() {
         for (SelenideElement di : vegetablesDropdownItems) {
-            if (vegetablesDropdownItems.contains("Vegetables")) {
+            if (di.getText().contains("Vegetables")) {
                 di.click();
                 break;
             }
         }
     }
 
-    public SelenideElement getMetalDropdown() {
-        return metalDropdown;
+    public void selectMetalDropdown(String metalOption) {
+        for (SelenideElement metal : dropdownOptions) {
+            if (metal.getText().equals(metalOption)) {
+                metal.click();
+                break;
+            }
+        }
+    }
+
+    public ElementsCollection getResultRecord() {
+        return resultRecord;
     }
 }

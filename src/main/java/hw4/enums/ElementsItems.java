@@ -5,7 +5,7 @@ public enum ElementsItems {
     EARTH("Earth"),
     WIND("Wind"),
     FIRE("Fire"),
-    WATTER("Watter");
+    WATER("Water");
 
     final String value;
 

@@ -24,8 +24,8 @@ public class SecondExerciseTest extends AbstractBaseTest {
     @BeforeMethod
     public void setUp() {
         super.setUp();
-        MetalColorPageActionSteps metalColorPageActionSteps = new MetalColorPageActionSteps();
-        MetalColorPageAssertionSteps metalColorPageAssertionSteps = new MetalColorPageAssertionSteps();
+        this.metalColorPageActionSteps = new MetalColorPageActionSteps();
+        this.metalColorPageAssertionSteps = new MetalColorPageAssertionSteps();
     }
 
     @Test(dataProviderClass = MetalColorPageDataProvider.class,
@@ -34,8 +34,8 @@ public class SecondExerciseTest extends AbstractBaseTest {
 
         // 1. Open test site by URL
         open("https://epam.github.io/JDI/");
-        HomePage homePage = new HomePage();
-        MetalsColorsPage metalsColorsPage = new MetalsColorsPage();
+        HomePage homePage = metalColorPageActionSteps.homePage();
+        MetalsColorsPage metalsColorsPage = metalColorPageActionSteps.metalsColorsPage();
 
 
         // 2. Assert Browser title
@@ -57,6 +57,7 @@ public class SecondExerciseTest extends AbstractBaseTest {
         metalsColorsPage.clickSubmitButton();
 
         //8. Check Results block output on the right-side
+        metalColorPageAssertionSteps.checkResultOutputs(metalsColorsPage, testData);
 
         //logout
         metalsColorsPage.getHeaderMenu().logout();

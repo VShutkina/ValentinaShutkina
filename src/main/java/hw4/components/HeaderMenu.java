@@ -22,7 +22,7 @@ public class HeaderMenu {
     @FindBy(xpath = "//div[@class='logout']")
     private SelenideElement logoutButton;
 
-    @FindBy(id = "user-name")
+    @FindBy(css = "#user-name")
     private SelenideElement loggedUser;
 
     public HeaderMenu() {

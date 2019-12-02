@@ -27,19 +27,20 @@ public class MetalColorPageDataProvider {
                         build()},
                 {MetalColorPageTestData.metalColorBuilder().
                         setSummaryList(Arrays.asList(THREE.getValue(), TWO.getValue())).
-                        setElementsList(Arrays.asList(WATTER.getValue(), WIND.getValue(), FIRE.getValue())).
+                        setElementsList(Arrays.asList(WATER.getValue(), WIND.getValue(), FIRE.getValue())).
                         setMetal(BRONZE.getValue()).
                         setVegetablesList(Arrays.asList(ONION.getValue())).
                         build()},
                 {MetalColorPageTestData.metalColorBuilder().
                         setSummaryList(Arrays.asList(SIX.getValue(), FIVE.getValue())).
-                        setElementsList(Arrays.asList(WATTER.getValue())).
+                        setElementsList(Arrays.asList(WATER.getValue())).
                         setColor(GREEN.getValue()).
                         setMetal(SELEN.getValue()).
-                        setVegetablesList(Arrays.asList(TOMATO.getValue(),
+                        setVegetablesList(Arrays.asList(
                                 CUCUMBER.getValue(),
-                                ONION.getValue(),
-                                VEGETABLES.getValue())).
+                                TOMATO.getValue(),
+                                VEGETABLES.getValue(),
+                                ONION.getValue())).
                         build()},
                 {MetalColorPageTestData.metalColorBuilder().
                         setElementsList(Arrays.asList(FIRE.getValue())).
