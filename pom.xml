@@ -19,6 +19,7 @@
         <webdrivermanager.version>3.7.1</webdrivermanager.version>
         <common.io.version>2.6</common.io.version>
         <calculator.version>1.0</calculator.version>
+        <selenide.version>5.5.0</selenide.version>
 
         <!-- Plugins version -->
         <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
@@ -86,7 +87,7 @@
         <profile>
             <id>Hw3AllExerciseTests</id>
             <activation>
-                <activeByDefault>true</activeByDefault>
+                <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
                 <suite.file>src/test/resources/hw3/AllExercisesTest.xml</suite.file>
@@ -109,6 +110,34 @@
             </activation>
             <properties>
                 <suite.file>src/test/resources/hw3/SecondExerciseTest.xml</suite.file>
+            </properties>
+        </profile>
+        <profile>
+            <id>Hw4AllExerciseTests</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <suite.file>src/test/resources/hw4/AllExercisesTest.xml</suite.file>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>Hw4FirstExerciseTests</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <suite.file>src/test/resources/hw4/FirstExerciseTest.xml</suite.file>
+            </properties>
+        </profile>
+        <profile>
+            <id>Hw4SecondExerciseTests</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <suite.file>src/test/resources/hw4/SecondExerciseTest.xml</suite.file>
             </properties>
         </profile>
 
@@ -145,6 +174,11 @@
             <version>${calculator.version}</version>
             <scope>system</scope>
             <systemPath>${project.basedir}/src/main/resources/calculator-1.0.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>com.codeborne</groupId>
+            <artifactId>selenide</artifactId>
+            <version>${selenide.version}</version>
         </dependency>
     </dependencies>
 

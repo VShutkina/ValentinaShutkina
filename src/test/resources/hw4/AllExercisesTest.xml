@@ -1,0 +1,23 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="All Tests for homework 2">
+
+    <test name="First Exercise Test">
+        <classes>
+            <class name="hw4.ex1.FirstExerciseTest">
+                <methods>
+                    <include name="firstExerciseTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Second Exercise Test">
+        <classes>
+            <class name="hw4.ex2.SecondExerciseTest">
+                <methods>
+                    <include name="secondExerciseTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
