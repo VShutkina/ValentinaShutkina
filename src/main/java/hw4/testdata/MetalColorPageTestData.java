@@ -10,7 +10,7 @@ public class MetalColorPageTestData {
     private String metal;
     private List<String> vegetablesList;
 
-    public MetalColorPageTestData(List<String> summaryList, List<String> elementsList, String color, String metal, List<String> vegetablesList) {
+    private MetalColorPageTestData(List<String> summaryList, List<String> elementsList, String color, String metal, List<String> vegetablesList) {
         this.summaryList = summaryList;
         this.elementsList = elementsList;
         this.color = color;
