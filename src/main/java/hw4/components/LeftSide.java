@@ -4,8 +4,6 @@ import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.support.FindBy;
 
-import java.util.List;
-
 import static com.codeborne.selenide.Selenide.page;
 
 public class LeftSide {
@@ -14,7 +12,7 @@ public class LeftSide {
     private SelenideElement leftSide;
 
     @FindBy(xpath = "//ul[@class='sidebar-menu']/li/a/span")
-    private List<SelenideElement> leftPanelMenuItems;
+    private ElementsCollection leftPanelMenuItems;
 
     @FindBy(xpath = "//ul[@class='sub']//li")
     private ElementsCollection leftPanelServiceCollectionSubItems;

@@ -7,6 +7,7 @@ import org.openqa.selenium.support.FindBy;
 import java.util.List;
 
 import static com.codeborne.selenide.Selenide.page;
+import static hw4.enums.VegetablesItems.VEGETABLES;
 
 public class MetalsColorsPage extends AbstractBasePage {
 
@@ -92,7 +93,7 @@ public class MetalsColorsPage extends AbstractBasePage {
 
     public void unsetVegetablesItem() {
         for (SelenideElement di : vegetablesDropdownItems) {
-            if (di.getText().contains("Vegetables")) {
+            if (di.getText().contains(VEGETABLES.getValue())) {
                 di.click();
                 break;
             }
