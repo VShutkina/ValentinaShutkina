@@ -3,9 +3,6 @@
     <test name="HW5 Test Exercise 1">
         <classes>
             <class name="hw5.ex1.FirstExerciseTest">
-                <methods>
-                    <include name="firstExerciseTest"/>
-                </methods>
             </class>
         </classes>
     </test>
