@@ -30,6 +30,7 @@ public abstract class AbstractBaseTest {
         driver.manage().timeouts().implicitlyWait(10000, TimeUnit.MILLISECONDS);
         driver.manage().timeouts().pageLoadTimeout(20000, TimeUnit.MILLISECONDS);
         driver.manage().timeouts().setScriptTimeout(30000, TimeUnit.MILLISECONDS);
+        WebDriverSingleton.INSTANCE.setDriver(driver);
 
         testProperties = new Properties();
         try {
