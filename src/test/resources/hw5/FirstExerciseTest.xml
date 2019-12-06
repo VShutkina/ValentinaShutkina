@@ -1,6 +1,5 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Test Exercise 1">
-
     <suite-files>
         <suite-file path="HomePageTestSuite.xml"/>
         <suite-file path="DifferentElementsPageTestSuite.xml"/>

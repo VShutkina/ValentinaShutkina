@@ -147,7 +147,7 @@
         <profile>
             <id>Hw5FirstAndSecondExerciseTests</id>
             <activation>
-                <activeByDefault>true</activeByDefault>
+                <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
                 <suite.file>src/test/resources/hw5/FirstExerciseTest.xml</suite.file>
@@ -156,7 +156,7 @@
         <profile>
             <id>Hw5Ex1WithFailedFirstExerciseTests</id>
             <activation>
-                <activeByDefault>false</activeByDefault>
+                <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
                 <suite.file>src/test/resources/hw5/SecondExerciseTest.xml</suite.file>
