@@ -154,12 +154,12 @@
             </properties>
         </profile>
         <profile>
-            <id>Hw5FailedFirstExerciseTests</id>
+            <id>Hw5Ex1WithFailedFirstExerciseTests</id>
             <activation>
                 <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
-                <suite.file>src/test/resources/hw5/FirstExerciseTest.xml</suite.file>
+                <suite.file>src/test/resources/hw5/SecondExerciseTest.xml</suite.file>
             </properties>
         </profile>
 
