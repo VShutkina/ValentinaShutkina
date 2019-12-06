@@ -2,3 +2,5 @@
 **/.idea
 **/*.iml
 /build/
+**/allure-results
+**/.allure

@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Different Element Page test steps">
+
+    <test name="Different Element Functionality">
+        <classes>
+            <class name="hw5.ex1.SecondExerciseTest"/>
+        </classes>
+    </test>
+</suite>
