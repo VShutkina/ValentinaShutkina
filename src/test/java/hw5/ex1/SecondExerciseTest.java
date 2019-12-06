@@ -1,16 +1,24 @@
-package hw5.ex2;
+package hw5.ex1;
 
 import hw3.enums.HeaderListItems;
 import hw3.enums.HeaderServiceItems;
 import hw3.enums.LeftSideListItems;
 import hw5.common.AbstractBaseTest;
+import hw5.common.AttachmentListener;
 import hw5.steps.DifferentElementsPageActionSteps;
 import hw5.steps.DifferentElementsPageAssertionSteps;
 import hw5.steps.HomePageActionSteps;
 import hw5.steps.HomePageAssertionSteps;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Features;
+import io.qameta.allure.Stories;
+import io.qameta.allure.Story;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
+@Features({@Feature("Different Elements page"), @Feature("SecondExercise")})
+@Listeners(AttachmentListener.class)
 public class SecondExerciseTest extends AbstractBaseTest {
 
     private HomePageActionSteps homePageActionSteps;
@@ -28,6 +36,8 @@ public class SecondExerciseTest extends AbstractBaseTest {
         differentElementsPageAssertionSteps = new DifferentElementsPageAssertionSteps(driver);
     }
 
+    @Stories({@Story("Login on the Home page and open Different Elements Page"),
+            @Story("Different Elements Page functionality")})
     @Test
     public void secondExerciseTest() {
 

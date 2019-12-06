@@ -21,7 +21,8 @@
         <calculator.version>1.0</calculator.version>
         <selenide.version>5.5.0</selenide.version>
         <allure.version>2.13.0</allure.version>
-        <jackson.version>2.9.9</jackson.version>
+        <allure.maven.plugin.version>2.10.0</allure.maven.plugin.version>
+        <jakson-annotations.version>2.9.9</jakson-annotations.version>
         <aspectj.version>1.8.10</aspectj.version>
 
         <!-- Plugins version -->
@@ -144,9 +145,18 @@
             </properties>
         </profile>
         <profile>
-            <id>Hw5FirstExerciseTests</id>
+            <id>Hw5FirstAndSecondExerciseTests</id>
             <activation>
                 <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <suite.file>src/test/resources/hw5/FirstExerciseTest.xml</suite.file>
+            </properties>
+        </profile>
+        <profile>
+            <id>Hw5FailedFirstExerciseTests</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
                 <suite.file>src/test/resources/hw5/FirstExerciseTest.xml</suite.file>
@@ -194,23 +204,8 @@
         </dependency>
         <dependency>
             <groupId>io.qameta.allure</groupId>
-            <artifactId>allure-java-commons</artifactId>
-            <version>${allure.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>io.qameta.allure</groupId>
             <artifactId>allure-testng</artifactId>
             <version>${allure.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>io.qameta.allure</groupId>
-            <artifactId>allure-attachments</artifactId>
-            <version>${allure.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-annotations</artifactId>
-            <version>${jackson.version}</version>
         </dependency>
     </dependencies>
 
@@ -232,14 +227,12 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${maven.surefire.plugin.version}</version>
                 <configuration>
-                    <reuseForks>false</reuseForks>
-                    <forkCount>0</forkCount>
-                    <suiteXmlFiles>
-                        <suiteXmlFile>src/test/resources/hw5/FirstExerciseTest.xml</suiteXmlFile>
-                    </suiteXmlFiles>
                     <argLine>
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
                     </argLine>
+                    <suiteXmlFiles>
+                        <suiteXmlFile>${suite.file}</suiteXmlFile>
+                    </suiteXmlFiles>
                 </configuration>
                 <dependencies>
                     <dependency>
@@ -252,9 +245,9 @@
             <plugin>
                 <groupId>io.qameta.allure</groupId>
                 <artifactId>allure-maven</artifactId>
-                <version>2.10.0</version>
+                <version>${allure.maven.plugin.version}</version>
                 <configuration>
-                    <reportVersion>2.13.0</reportVersion>
+                    <reportVersion>${allure.version}</reportVersion>
                     <resultsDirectory>${project.basedir}/allure-results</resultsDirectory>
                 </configuration>
             </plugin>

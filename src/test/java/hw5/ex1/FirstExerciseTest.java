@@ -4,12 +4,15 @@ import hw5.common.AbstractBaseTest;
 import hw5.common.AttachmentListener;
 import hw5.steps.HomePageActionSteps;
 import hw5.steps.HomePageAssertionSteps;
-import io.qameta.allure.testng.AllureTestNg;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Features;
+import io.qameta.allure.Story;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
-@Listeners({AllureTestNg.class, AttachmentListener.class})
+@Features({@Feature("Home page"), @Feature("FirstExercise")})
+@Listeners({AttachmentListener.class})
 public class FirstExerciseTest extends AbstractBaseTest {
 
     private HomePageActionSteps homePageActionSteps;
@@ -23,6 +26,7 @@ public class FirstExerciseTest extends AbstractBaseTest {
         homePageAssertionSteps = new HomePageAssertionSteps(driver);
     }
 
+    @Story("Test home functionality")
     @Test
     public void firstExerciseTest() {
 
