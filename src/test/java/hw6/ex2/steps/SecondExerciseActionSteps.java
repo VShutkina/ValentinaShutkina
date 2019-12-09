@@ -2,6 +2,7 @@ package hw6.ex2.steps;
 
 import cucumber.api.java.en.When;
 import hw6.common.AbstractBaseSteps;
+import hw6.ex2.TestStorage;
 
 public class SecondExerciseActionSteps extends AbstractBaseSteps {
 
@@ -21,5 +22,17 @@ public class SecondExerciseActionSteps extends AbstractBaseSteps {
     @When("^I click on '([^\"]+)' submenu in Service dropdown on the Home page$")
     public void iClickOnServiceSubMenuOnTheHomePage(final String headerSubMenuItem) {
         homePage.getHeaderMenu().headerSubMenuItemClick(headerSubMenuItem);
+    }
+
+    @When("^I select 'vip' checkbox for '([^\"]+)' user$")
+    public void iSelectCheckboxForUser(String username) {
+        userTablePage.setCheckBoxByUserName(username);
+    }
+
+    @When("^I click on dropdown in column Type for user '([^\"]+)'$")
+    public void iClickOnDropdownInColumnTypeForUser(String username) {
+        TestStorage.INSTANCE.setOptionsList(
+                userTablePage.clickDropDownByUserName(username)
+        );
     }
 }

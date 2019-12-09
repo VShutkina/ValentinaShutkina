@@ -9,4 +9,10 @@ public abstract class AbstractBaseSteps {
     protected static HomePage homePage;
     protected static DifferentElementsPage differentElementsPage;
     protected static UserTablePage userTablePage;
+
+    public AbstractBaseSteps() {
+        homePage = new HomePage(WebDriverSingleton.INSTANCE.getDriver());
+        differentElementsPage = new DifferentElementsPage(WebDriverSingleton.INSTANCE.getDriver());
+        userTablePage = new UserTablePage(WebDriverSingleton.INSTANCE.getDriver());
+    }
 }
