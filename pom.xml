@@ -157,13 +157,30 @@
         <profile>
             <id>Hw5Ex1WithFailedFirstExerciseTests</id>
             <activation>
-                <activeByDefault>true</activeByDefault>
+                <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
                 <suite.file>src/test/resources/hw5/SecondExerciseTest.xml</suite.file>
             </properties>
         </profile>
-
+        <profile>
+            <id>Hw6FirstExerciseTest</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <suite.file>src/test/resources/hw6/ex1/FirstExerciseTest.xml</suite.file>
+            </properties>
+        </profile>
+        <profile>
+            <id>Hw6SecondExerciseTest</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <suite.file>src/test/resources/hw6/ex2/SecondExerciseTest.xml</suite.file>
+            </properties>
+        </profile>
     </profiles>
 
     <dependencies>
