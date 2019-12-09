@@ -1,4 +1,4 @@
-package hw6.hooks;
+package hw6.ex2;
 
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
@@ -9,7 +9,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.concurrent.TimeUnit;
 
-public class CucumberHooks {
+public class Ex2CucumberHooks {
 
     @Before
     public void setUp() {
