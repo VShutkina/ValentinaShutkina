@@ -164,21 +164,12 @@
             </properties>
         </profile>
         <profile>
-            <id>Hw6FirstExerciseTest</id>
-            <activation>
-                <activeByDefault>false</activeByDefault>
-            </activation>
-            <properties>
-                <suite.file>src/test/resources/hw6/FirstExerciseTest.xml</suite.file>
-            </properties>
-        </profile>
-        <profile>
-            <id>Hw6SecondExerciseTest</id>
+            <id>Hw6CucumberExercisesTest</id>
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
-                <suite.file>src/test/resources/hw6/SecondExerciseTest.xml</suite.file>
+                <suite.file>src/test/resources/hw6/CucumberExercisesTest.xml</suite.file>
             </properties>
         </profile>
     </profiles>
