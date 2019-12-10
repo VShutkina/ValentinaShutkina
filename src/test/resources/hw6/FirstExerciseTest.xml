@@ -3,7 +3,7 @@
 <suite name="Test Exercise 1">
     <test name="Test Exercise 1">
         <classes>
-            <class name="hw6.ex1.RunTests"/>
+            <class name="hw6.steps.RunTests"/>
         </classes>
     </test>
 </suite>

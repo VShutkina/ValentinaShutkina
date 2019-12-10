@@ -1,9 +1,10 @@
-package hw6.ex1.steps;
+package hw6.steps;
 
 import cucumber.api.java.en.When;
 import hw6.common.AbstractBaseSteps;
+import hw6.common.TestStorage;
 
-public class FirstExerciseActionSteps extends AbstractBaseSteps {
+public class ActionSteps extends AbstractBaseSteps {
 
     @When("^I login as user '([^\"]+)' with password '([^\"]+)' on the Home page$")
     public void iLoginAsUserWithPasswordOnTheHomePage(String username, String password) {
@@ -41,6 +42,18 @@ public class FirstExerciseActionSteps extends AbstractBaseSteps {
     @When("^I select '([^\"]+)' value in dropdown on the Different Elements page$")
     public void iSelectValueInDropdownOnTheDifferentElementsPage(final String color) {
         differentElementsPage.selectColor(color);
+    }
+
+    @When("^I select 'vip' checkbox for '([^\"]+)' user$")
+    public void iSelectCheckboxForUser(String username) {
+        userTablePage.setCheckBoxByUserName(username);
+    }
+
+    @When("^I click on dropdown in column Type for user '([^\"]+)'$")
+    public void iClickOnDropdownInColumnTypeForUser(String username) {
+        TestStorage.INSTANCE.setOptionsList(
+                userTablePage.clickDropDownByUserName(username)
+        );
     }
 
 }

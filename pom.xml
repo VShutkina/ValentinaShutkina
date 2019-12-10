@@ -169,7 +169,7 @@
                 <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
-                <suite.file>src/test/resources/hw6/ex1/FirstExerciseTest.xml</suite.file>
+                <suite.file>src/test/resources/hw6/FirstExerciseTest.xml</suite.file>
             </properties>
         </profile>
         <profile>
@@ -178,7 +178,7 @@
                 <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
-                <suite.file>src/test/resources/hw6/ex2/SecondExerciseTest.xml</suite.file>
+                <suite.file>src/test/resources/hw6/SecondExerciseTest.xml</suite.file>
             </properties>
         </profile>
     </profiles>

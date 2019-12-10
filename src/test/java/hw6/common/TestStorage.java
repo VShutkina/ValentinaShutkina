@@ -1,4 +1,4 @@
-package hw6.ex2;
+package hw6.common;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,10 +1,10 @@
 Feature: Cucumber Second Exercise
 
   Scenario: User Table Page test
-    Given I am on Home Page
+    Given I open EPAM JDI Site
     And I login as user 'epam' with password '1234' on the Home page
-    When I click on 'SERVICE' button in the header on the Home page
-    And I click on 'USER TABLE' submenu in Service dropdown on the Home page
+    When I click on 'SERVICE' subcategory in the header on the Home page
+    And I click on 'USER TABLE' in the Service sub menu on the Home Page
     Then 'User Table' page is opened
     And 6 NumberType Dropdowns should be displayed on Users Table on User Table Page
     And 6 User names should be displayed on Users Table on User Table Page
