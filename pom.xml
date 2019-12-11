@@ -24,6 +24,7 @@
         <allure.maven.plugin.version>2.10.0</allure.maven.plugin.version>
         <jakson-annotations.version>2.9.9</jakson-annotations.version>
         <aspectj.version>1.8.10</aspectj.version>
+        <cucumber1.version>1.2.5</cucumber1.version>
 
         <!-- Plugins version -->
         <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
@@ -156,13 +157,21 @@
         <profile>
             <id>Hw5Ex1WithFailedFirstExerciseTests</id>
             <activation>
-                <activeByDefault>true</activeByDefault>
+                <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
                 <suite.file>src/test/resources/hw5/SecondExerciseTest.xml</suite.file>
             </properties>
         </profile>
-
+        <profile>
+            <id>Hw6CucumberExercisesTest</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <suite.file>src/test/resources/hw6/CucumberExercisesTest.xml</suite.file>
+            </properties>
+        </profile>
     </profiles>
 
     <dependencies>
@@ -206,6 +215,18 @@
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-testng</artifactId>
             <version>${allure.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>info.cukes</groupId>
+            <artifactId>cucumber-testng</artifactId>
+            <version>${cucumber1.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>info.cukes</groupId>
+            <artifactId>cucumber-java</artifactId>
+            <version>${cucumber1.version}</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 
