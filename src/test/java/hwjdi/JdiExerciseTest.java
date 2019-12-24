@@ -23,10 +23,12 @@ public class JdiExerciseTest extends AbstractBaseTest {
                         JdiUser.USER.getExpectedUserName(), actualUserName));
         JdiSite.openPageInHeaderMenu(METALS_AND_COLORS.getName());
         JdiSite.metalsColorsPage.fillForm(metalColorFormFiller);
-        String actualResultRecords = JdiSite.metalsColorsPage.getResultRecords();
-        assertEquals(metalColorFormFiller.toString(), actualResultRecords,
+        String actualResultRecord = JdiSite.metalsColorsPage.getResultRecords();
+        String expectedResultRecord = metalColorFormFiller.toString().
+                replaceAll("\\[|\\]", "");
+        assertEquals(expectedResultRecord, actualResultRecord,
                 format("Expected actual result record is %s, but get %s",
-                        metalColorFormFiller, actualResultRecords));
+                        expectedResultRecord, actualResultRecord));
         JdiSite.headerMenu.logout();
     }
 }

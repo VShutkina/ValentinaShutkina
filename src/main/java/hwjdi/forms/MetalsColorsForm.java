@@ -24,8 +24,8 @@ public class MetalsColorsForm extends Form<MetalColorFormFiller> {
     @Css("button[title='Colors']")
     private Button colorButton;
 
-    @Css("//div[contains(@class, 'uui-form-element open')]//li//a")
-    private DropdownExpand dropdownOptions;
+    @Css("#colors")
+    private DropdownExpand colorDropdownOptions;
 
     @Css("#salad-dropdown>button")
     private Button vegetablesButton;
@@ -36,15 +36,18 @@ public class MetalsColorsForm extends Form<MetalColorFormFiller> {
     @Css("button[title='Metals']")
     private Button metalButton;
 
+    @Css("#metals")
+    private DropdownExpand metalDropdownOptions;
+
     public void fillForm(MetalColorFormFiller metalColorFormFiller) {
         for (int i : metalColorFormFiller.getSummary()) {
             summaryRadioButtons.select(Integer.toString(i));
         }
         checkboxElements.select(metalColorFormFiller.getElements());
         colorButton.click();
-        dropdownOptions.select(metalColorFormFiller.getColor());
+        colorDropdownOptions.select(metalColorFormFiller.getColor());
         metalButton.click();
-        dropdownOptions.select(metalColorFormFiller.getMetals());
+        metalDropdownOptions.select(metalColorFormFiller.getMetals());
         vegetablesButton.click();
         vegetablesDropdownItems.select(VEGETABLES.getValue());
         vegetablesDropdownItems.select(metalColorFormFiller.getVegetables());
