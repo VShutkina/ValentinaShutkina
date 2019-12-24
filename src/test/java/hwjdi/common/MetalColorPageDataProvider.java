@@ -5,9 +5,7 @@ import org.testng.annotations.DataProvider;
 public class MetalColorPageDataProvider {
 
     @DataProvider(name = "TestDataMetalColor")
-    public Object[][] testDataMetalColor() {
-        return new Object[][]{
-
-        };
+    public Object[] testDataMetalColor() {
+        return MetalColorPageTestDataGetter.getMetalColorPageTestData();
     }
 }

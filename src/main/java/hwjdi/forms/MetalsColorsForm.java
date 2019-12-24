@@ -6,8 +6,11 @@ import com.epam.jdi.light.elements.composite.Form;
 import com.epam.jdi.light.elements.pageobjects.annotations.FindBy;
 import com.epam.jdi.light.elements.pageobjects.annotations.locators.Css;
 import com.epam.jdi.light.ui.html.elements.common.Button;
+import hwjdi.entities.MetalColorFormFiller;
 
-public class MetalsColorsForm extends Form {
+import static hwjdi.enums.VegetablesItems.VEGETABLES;
+
+public class MetalsColorsForm extends Form<MetalColorFormFiller> {
 
     @FindBy(id = "submit-button")
     private Button submitButton;
@@ -32,4 +35,19 @@ public class MetalsColorsForm extends Form {
 
     @Css("button[title='Metals']")
     private Button metalButton;
+
+    public void fillForm(MetalColorFormFiller metalColorFormFiller) {
+        for (int i : metalColorFormFiller.getSummary()) {
+            summaryRadioButtons.select(Integer.toString(i));
+        }
+        checkboxElements.select(metalColorFormFiller.getElements());
+        colorButton.click();
+        dropdownOptions.select(metalColorFormFiller.getColor());
+        metalButton.click();
+        dropdownOptions.select(metalColorFormFiller.getMetals());
+        vegetablesButton.click();
+        vegetablesDropdownItems.select(VEGETABLES.getValue());
+        vegetablesDropdownItems.select(metalColorFormFiller.getVegetables());
+        submitButton.click();
+    }
 }

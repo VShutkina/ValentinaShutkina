@@ -1,5 +1,6 @@
 package hwjdi.forms;
 
+import com.epam.jdi.light.elements.common.UIElement;
 import com.epam.jdi.light.elements.complex.WebList;
 import com.epam.jdi.light.elements.composite.Section;
 import com.epam.jdi.light.elements.pageobjects.annotations.locators.Css;
@@ -17,7 +18,13 @@ public class HeaderMenu extends Section {
     @XPath("//div[@class='logout']")
     private Button logoutButton;
 
-    public void headerMenuItemClick() {
+    public void headerMenuItemClick(String menuItemName) {
+        for (UIElement menuHeaderItem : navigationHeaderRootsElements) {
+            if (menuItemName.equals(menuHeaderItem.getText())) {
+                menuHeaderItem.click();
+                break;
+            }
+        }
 
     }
 

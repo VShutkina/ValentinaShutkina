@@ -27,6 +27,7 @@
         <cucumber1.version>1.2.5</cucumber1.version>
         <jdi.version>RELEASE</jdi.version>
         <commons-lang3.version>3.9</commons-lang3.version>
+        <jackson-annotations.version>2.9.6</jackson-annotations.version>
 
         <!-- Plugins version -->
         <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
@@ -251,6 +252,11 @@
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
             <version>${commons-lang3.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+            <version>${jackson-annotations.version}</version>
         </dependency>
     </dependencies>
 

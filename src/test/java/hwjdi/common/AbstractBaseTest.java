@@ -25,7 +25,7 @@ public abstract class AbstractBaseTest {
         }
     }
 
-    @AfterSuite(alwaysRun = true)
+    @AfterSuite
     public void afterSuite() {
         WebDriverUtils.killAllSeleniumDrivers();
     }
