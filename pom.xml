@@ -184,7 +184,7 @@
                 <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
-                <suite.file>src/test/resources/hwjdi/JDIExercisesTest.xml</suite.file>
+                <suite.file>src/test/resources/hwjdi/JDIExerciseTest.xml</suite.file>
             </properties>
         </profile>
     </profiles>
