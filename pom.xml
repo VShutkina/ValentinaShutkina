@@ -25,10 +25,16 @@
         <jakson-annotations.version>2.9.9</jakson-annotations.version>
         <aspectj.version>1.8.10</aspectj.version>
         <cucumber1.version>1.2.5</cucumber1.version>
+        <jdi.version>RELEASE</jdi.version>
+        <commons-lang3.version>3.9</commons-lang3.version>
+        <jackson-annotations.version>2.9.6</jackson-annotations.version>
 
         <!-- Plugins version -->
         <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
         <maven.surefire.plugin.version>2.22.2</maven.surefire.plugin.version>
+
+        <!-- Custom properties for JDI -->
+        <domain>https://jdi-testing.github.io/jdi-light/</domain>
     </properties>
 
     <profiles>
@@ -166,10 +172,19 @@
         <profile>
             <id>Hw6CucumberExercisesTest</id>
             <activation>
-                <activeByDefault>true</activeByDefault>
+                <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
                 <suite.file>src/test/resources/hw6/CucumberExercisesTest.xml</suite.file>
+            </properties>
+        </profile>
+        <profile>
+            <id>HwJDIExercisesTest</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <suite.file>src/test/resources/hwjdi/JDIExerciseTest.xml</suite.file>
             </properties>
         </profile>
     </profiles>
@@ -227,6 +242,21 @@
             <artifactId>cucumber-java</artifactId>
             <version>${cucumber1.version}</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.epam.jdi</groupId>
+            <artifactId>jdi-light-html</artifactId>
+            <version>${jdi.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>${commons-lang3.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+            <version>${jackson-annotations.version}</version>
         </dependency>
     </dependencies>
 
