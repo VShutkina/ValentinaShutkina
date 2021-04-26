@@ -17,7 +17,7 @@
         <testng.version>7.0.0</testng.version>
         <selenium.version>3.141.59</selenium.version>
         <webdrivermanager.version>3.7.1</webdrivermanager.version>
-        <common.io.version>2.6</common.io.version>
+        <common.io.version>2.7</common.io.version>
         <calculator.version>1.0</calculator.version>
         <selenide.version>5.5.0</selenide.version>
         <allure.version>2.13.0</allure.version>
